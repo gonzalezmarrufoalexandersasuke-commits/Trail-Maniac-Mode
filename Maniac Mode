@@ -10,20 +10,20 @@ require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("
 -- Rusher (Entity 1)
 coroutine.wrap(function()
 while true do
-task.wait(190)
+task.wait(220)
 game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
 task.wait(0)
-loadstring(game:HttpGet("https://github.com/gonzalezmarrufoalexandersasuke-commits/Trail-Maniac-Mode/blob/main/Rusher%20Doors"))()
+loadstring(game:HttpGet("https://github.com/gonzalezmarrufoalexandersasuke-commits/Trail-Maniac-Mode/blob/main/Breaker%20Doors"))()
 end
 end)()
 -- STREAMING_CHUNK:Configuring Breaker entity spawner...
 -- Breaker (Entity 2)
 coroutine.wrap(function()
 while true do
-task.wait(220)
+task.wait(190)
 game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
 task.wait(0)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/gonzalezmarrufoalexandersasuke-commits/Trail-Maniac-Mode/refs/heads/main/Breaker%20Doors"))()
+loadstring(game:HttpGet("https://github.com/gonzalezmarrufoalexandersasuke-commits/Trail-Maniac-Mode/blob/main/Rusher%20Doors"))()
 end
 end)()
 -- STREAMING_CHUNK:Configuring Trail entity spawner...
