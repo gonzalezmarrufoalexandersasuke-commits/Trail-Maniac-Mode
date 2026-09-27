@@ -7,7 +7,7 @@ local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Regul
 local entity = Spawner:Create({
 	Entity = {
 		Name = "Breaker",
-		Asset = "rbxassetid://127980558682704",
+		Asset = "rbxassetid://13163092416",
 		HeightOffset = 0
 	},
 	Lights = {
@@ -27,7 +27,7 @@ local entity = Spawner:Create({
 		Values = {5, 10, 0.1, 1} -- Magnitude, Roughness, FadeIn, FadeOut
 	},
 	Movement = {
-		Speed = 114,
+		Speed = 124,
 		Delay = 3,
 		Reversed = false
 	},
