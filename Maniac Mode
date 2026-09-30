@@ -7,23 +7,23 @@ local caption2 = game.Players.LocalPlayer:WaitForChild("PlayerGui").MainUI.MainF
 caption2.TextColor3 = Color3.fromRGB(255, 255, 255)
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Maniac Mode Initiated, Mode Made by me, flinch's idea of the mode", true)
 -- STREAMING_CHUNK:Configuring Rusher entity spawner...
--- Rusher (Entity 1)
+-- Breaker (Entity 1)
 coroutine.wrap(function()
 while true do
 task.wait(220)
 game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
 task.wait(0)
-loadstring(game:HttpGet("https://github.com/gonzalezmarrufoalexandersasuke-commits/Trail-Maniac-Mode/blob/main/Breaker%20Doors"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/gonzalezmarrufoalexandersasuke-commits/Trail-Maniac-Mode/refs/heads/main/Breaker%20Doors"))()
 end
 end)()
 -- STREAMING_CHUNK:Configuring Breaker entity spawner...
--- Breaker (Entity 2)
+-- Rusher (Entity 2)
 coroutine.wrap(function()
 while true do
 task.wait(190)
 game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
 task.wait(0)
-loadstring(game:HttpGet("https://github.com/gonzalezmarrufoalexandersasuke-commits/Trail-Maniac-Mode/blob/main/Rusher%20Doors"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/gonzalezmarrufoalexandersasuke-commits/Trail-Maniac-Mode/refs/heads/main/Rusher%20Doors"))()
 end
 end)()
 -- STREAMING_CHUNK:Configuring Trail entity spawner...
