@@ -6,6 +6,18 @@ game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
 local caption2 = game.Players.LocalPlayer:WaitForChild("PlayerGui").MainUI.MainFrame.Caption
 caption2.TextColor3 = Color3.fromRGB(255, 255, 255)
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Maniac Mode Initiated, Mode Made by me, flinch's idea of the mode", true)
+-- STREAMING_CHUNK:Configuring anti-simultaneous spawn protection system...
+local lastSpawnTick = 0
+local function safeSpawn(loadstringFunc)
+task.spawn(function()
+-- Ensures entities do not spawn all at once ("de jalón") by enforcing a cooldown between spawns
+while tick() - lastSpawnTick < 20 do
+task.wait(2)
+end
+lastSpawnTick = tick()
+loadstringFunc()
+end)
+end
 -- STREAMING_CHUNK:Configuring Rusher entity spawner...
 -- Breaker (Entity 1)
 coroutine.wrap(function()
@@ -13,7 +25,9 @@ while true do
 task.wait(220)
 game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
 task.wait(0)
+safeSpawn(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/gonzalezmarrufoalexandersasuke-commits/Trail-Maniac-Mode/refs/heads/main/Breaker%20Doors"))()
+end)
 end
 end)()
 -- STREAMING_CHUNK:Configuring Breaker entity spawner...
@@ -23,17 +37,45 @@ while true do
 task.wait(190)
 game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
 task.wait(0)
+safeSpawn(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/gonzalezmarrufoalexandersasuke-commits/Trail-Maniac-Mode/refs/heads/main/Rusher%20Doors"))()
+end)
 end
 end)()
 -- STREAMING_CHUNK:Configuring Trail entity spawner...
--- Trail (Entity 3 - New entity with independent timing to prevent simultaneous spawns)
+-- Trail (Entity 3)
 coroutine.wrap(function()
 while true do
 task.wait(255)
 game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
 task.wait(0)
+safeSpawn(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/gonzalezmarrufoalexandersasuke-commits/Trail-Maniac-Mode/refs/heads/main/Trail%20Doors"))()
+end)
+end
+end)()
+-- STREAMING_CHUNK:Configuring Ripper entity spawner...
+-- Ripper (Entity 4 - New)
+coroutine.wrap(function()
+while true do
+task.wait(200)
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+task.wait(0)
+safeSpawn(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/gonzalezmarrufoalexandersasuke-commits/Trail-Maniac-Mode/refs/heads/main/Maniac%20Ripper%20Doors"))()
+end)
+end
+end)()
+-- STREAMING_CHUNK:Configuring Rebound entity spawner...
+-- Rebound (Entity 5 - New)
+coroutine.wrap(function()
+while true do
+task.wait(235)
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+task.wait(0)
+safeSpawn(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/gonzalezmarrufoalexandersasuke-commits/Trail-Maniac-Mode/refs/heads/main/Maniac%20Rebound%20Doors"))()
+end)
 end
 end)()
 -- STREAMING_CHUNK:Configuring Rush and Ambush visual modifications...
